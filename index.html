@@ -1,0 +1,2844 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>LGT Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--    <script src="js/winstore-jscompat.js" type="text/javascript"></script>-->
+    <link href="css/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <link href="css/slidernav.css" rel="stylesheet" type="text/css" />
+   
+     <script src="js/slidernav.js" type="text/javascript"></script>
+    
+   
+   
+    <script src="js/script.js" type="text/javascript"></script>
+    <script src="cordova.js" type="text/javascript"></script>
+    <script src="js/counter.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            'use strict';
+            $('textarea').countChar();
+        });
+        //        $(document).on("pagecreate", function () {
+
+        //        });
+
+
+    </script>
+</head>
+<body onload="onLoad()">
+    <!-------------------------------------------------------Login page Starts--------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="PatientlistLoginPage" style="background-color: #ffffff !important;">
+        <div data-role="header" class="headerNew" data-position="fixed" data-tap-toggle="false">
+             <div id="headerImage" style="width: 100%; background-color: #ffffff;margin-top:20px;">
+                <div style="width: 100%;">
+                    <div style="float: left; width:10%;">
+                        <img class="fl" src="img/logo.png" width="40px">
+
+                         <div class="headImage fl" style="width:10%;line-height:40px;font-size:0.70em;">
+                       <!-- One Trust - serving our local communities.-->
+                    </div>
+                    </div>
+                   
+                    <div align="right" style="float: right; width:75%;">
+                        <img class="" src="img/lgtnewheader.jpg" style="max-width:220px;width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="background_image">
+            <form id="loginform" data-ajax="false" class="login">
+            <div style="font-size: 15px; color: #FFFFFF; text-shadow: none !important;">
+                Lewisham and Greenwich NHS Trust</div>
+            <div class="tac tshadow" style="font-size: 20px; color: #FFFFFF; margin-top: 15px;">
+                LGT Portal</div>
+            <hr style="height: 1px; background-color: #ffffff; border: 0; width: 100% !important" />
+            <div class="inputAnimation">
+                <label for="email">
+                    E-Mail</label>
+                <input name="email" id="loginid" style="margin-left:5px;" class="ui-corner-all" value="" type="text" />
+            </div>
+            <div class="inputAnimation">
+                <label for="password">
+                    PIN</label>
+                   
+                <input name="password" id="loginpin" class="ui-corner-all asterisk"  type="number"/>
+            </div>
+               <div>
+                <div style="float:left; width:217px;">              
+                <select id="ddlTrustSite" data-mini="true">
+                
+                </select>
+               </div>
+               <div style="float:left;" id="refreshList">
+        <a href="" data-role="button" data-icon="refresh" data-iconpos="notext">Refresh</a>
+       </div>
+       
+                        </div>
+                        <div class="clr"></div>
+            <!-- <input name="attachment" type="file" id="attachment" />-->
+            <input type="hidden" id="hdntokenKey" />
+            <input type="hidden" id="hdnuserid" />
+            <input type="hidden" id="hdnphyname" />
+            <input type="hidden" id="hdnjobtitle" />
+            <input type="hidden" id="hdnloginstatus" />
+            <input type="hidden" id="hdnfacilityId" />
+            <input type="hidden" id="hdnPrimaryfacilityId" />
+            <input type="hidden" id="hdnFacilityName" />
+             <input type="hidden" id="hdnUUID" />
+            <div class="tac mt20">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div class="iconLogin">
+                            <img src="img/login_go.png" id="btnlogin" style="width: 50px; height: 50px;" />
+                            <div class="tac txtcolor tshadow">
+                                Login</div>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="iconLogin">
+                            <img src="img/request_pin.png" style="width: 50px; height: 50px;" id="btnrequestpin" />
+                            <div class="tac txtcolor tshadow">
+                                 Register</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt20 tshadow txt13" id="forgotPwdLogin" style="font-weight:bold;">Forgot PIN</div>
+            </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-------------------------------------------------------Login page ends--------------------------------------------->
+    <!-----------------------------------------Request Pin starts---------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="PatientlistRequestPin" style="background-color: #ffffff !important">
+       <div data-role="header" class="headerNew" data-position="fixed" data-tap-toggle="false">
+             <div id="Div5" style="width: 100%; background-color: #ffffff;margin-top:20px;">
+                <div style="width: 100%;">
+                    <div style="float: left; width:10%;">
+                        <img class="fl" src="img/logo.png" width="40px">
+
+                         <div class="headImage fl" style="width:10%;line-height:40px;font-size:0.70em;">
+                       <!-- One Trust - serving our local communities.-->
+                    </div>
+                    </div>
+                   
+                    <div align="right" style="float: right; width:75%;">
+                        <img class="" src="img/lgtnewheader.jpg" style="max-width:220px;width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="requestPin tshadow">
+        <input type="hidden" id="hdn_Timeout" />
+            <form id="Formrequestpin" data-ajax="false" class="login">
+         <!--   <div class="inputAnimation">
+                <label for="name">
+                    Name</label>
+                <input name="name" id="txt_name" value="" type="text" />
+            </div>-->
+             <div class="inputAnimation">
+                <label for="name">
+                    First Name</label>
+                <input name="name" id="fname" value="" type="text" />
+            </div>
+             <div class="inputAnimation">
+                <label for="name">
+                    Last Name</label>
+                <input name="name" id="lname" value="" type="text" />
+            </div>
+            <div class="inputAnimation">
+                <label for="jobtitle">
+                    Job Title</label>
+                <input name="jobtitle" id="txt_jobtitle" value="" type="text" />
+            </div>
+                  <div class = "inputAnimation">
+                <div style="float:left; width:217px;">              
+                  <select id="ddl_netusrname" data-mini="true">
+                </select>
+               </div>
+               <div style="float:left;" id="refFacility">
+        <a href="" data-role="button" data-icon="refresh" data-iconpos="notext">Refresh</a>
+       </div>
+       
+                        </div>
+           <!-- <div>
+                <select id="ddl_netusrname" data-mini="true">
+                </select>
+            </div>-->
+             <div class="inputAnimation">
+                <label for="nameId">
+                    iCare 12 Digit Smartcard ID </label>
+                <input name="nameId" id="UUIDNo"  onkeydown="limit(this);" onkeyup="limit(this);" type="number" />
+            </div>
+            <div class="inputAnimation">
+                <label for="email">
+                    NHS Email Address</label>
+                <input name="email" id="txt_email" value="" type="text" />
+            </div>
+           <div >
+                <input name="chbagree" id="chbagree" type="checkbox"/>
+                <label for="chbagree" id="chboxAgree" style="font-size:12px;">Agree with Trust Mobile Device Terms and Conditions?</label>
+           </div>
+            <div class="tac mt20">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div class="iconLogin">
+                            <img src="img/backicon.png" id="back_requestpin" style="width: 50px; height: 50px;" />
+                            <div class="tac txtcolor tshadow">
+                                Back</div>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="iconLogin">
+                            <img src="img/request_pin.png" style="width: 50px; height: 50px;" id="request_pin" />
+                            <div class="tac txtcolor tshadow">
+                                Register</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+               <div data-role="popup" id="popupAgree" style="padding:20px" data-history="false" data-position-to="window" data-dismissible="false" data-theme="a" >
+                          <div onclick="popupAgreeClose()"><a href="#" id="A1" class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext">
+                    Close</a></div>
+                       <p class="tac fw_bold" style="font-weight:700;font-size:18px;">
+                    Terms and Conditions</p>
+                    <div id="divPopupAgree" style="height: 250px; overflow-y: scroll;"></div>
+                    <div style="margin-top:10px;">
+                   <a href="" data-role="button" id="agreeTandC" class="ui-corner-all tac mt20"
+                    data-mini="true">Close</a>
+                    </div>
+ 
+    </div>
+     
+     </div>
+
+    <!--------------------------------------------Request Pin ends------------------------------------------------------->
+
+  
+    <!------------------Patient Dashboard Page Starts------------------------------------------------------------>
+
+
+    <!--------------------------------------------------Patient Dashboard Page Ends ends-------------------------------------------------->
+
+        <div data-role="page" data-theme="a" id="siteLandingPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_landingPage" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="PtInfo_landingPage">
+                </div>
+            </div>
+        </div>
+        <div data-role="main">
+            <div class="ui-grid-a mt30 mg15">
+                <div class="ui-block-a block mt10" id="box1">
+                    <div class="blockimg">
+                        <img src="img/mylists.png" alt="" border="0" class="blckimg" />
+                        <div class="tac txtList mt10 tshadow">
+                            PATIENT LIST</div>
+                    </div>
+                </div>
+                <div class="ui-block-b block mt10 " id="box2">
+                    <div class="blockimg">
+                        <img src="img/mylists.png" alt="" border="0" class="blckimg" />
+                        <div class="tac txtList mt10 tshadow">
+                            VIEW WARD</div>
+                    </div>
+                </div>
+                <div class="ui-block-b block mt20 " id="box3">
+                    <div class="blockimg">
+                        <img src="img/Takephoto.png" alt="" border="0" class="blckimg" />
+                        <div class="tac txtList mt10 tshadow">
+                            PHOTO CAPTURE</div>
+                    </div>
+                </div>
+                <div class="ui-block-b block mt20 " id="box4">
+                    <div class="blockimg">
+                        <img src="img/viewPatient.png" alt="" border="0" class="blckimg" />
+                        <div class="tac txtList mt10 tshadow">
+                            VIEW PATIENT</div>
+                    </div>
+                </div>
+             
+                <div class="ui-block-b block mt20 " id="box5">
+                    <div class="blockimg">
+                        <img src="img/settings_gear.png" alt="" border="0" class="blckimg" />
+                        <div class="tac txtList mt10 tshadow">
+                            SETTINGS</div>
+                    </div>
+                </div>
+                <div class="ui-block-b block mt20"  id="box6">
+                    <div class="blockimg">
+                        <img src="img/logout.png" alt="" border="0" class="blckimg" />
+                        <div class="tac txtList mt10 tshadow">
+                            LOGOUT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------------------Patient Edit List starts----------------------------------------->
+
+    <div data-role="page" data-theme="a" id="PatientEditlist" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_editlist" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="PtInfo_EditList">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+                   
+               <div style="float:left; color:#fff; margin-top:5px;">
+               List Name
+               </div>
+               <div style="float:right; color:#fff; margin-top:5px; ">
+               <span style="margin-right:30px;">Owner</span>
+               <span style="margin-right:10px;">Admin</span>
+               </div>
+              
+                <div class="clr"></div>
+                <div id="divLvListName" style="margin-top:6px;">
+                    <ul data-role="listview" id="lvListName" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="background-color:#fff;">
+                 
+  
+                    </ul>
+                    </div>
+             
+               
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="back_addlist">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="home_addlist">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c">
+                </div>
+                <div class="ui-block-d">
+                </div>
+                <div class="ui-block-e tac" id="createList">
+                    <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        CREATE LIST</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------------------------Patient Edit Lists Ends---------------------------------------------------->
+    <!-------------------------------My List starts----------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="PatientMyLists" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_myLists" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="PtInfo_MyList">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    My Lists</div>
+                <div style="background-color: #000000;">
+                    <ul data-role="listview" id="lv_mylists" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin-top: 0; margin-bottom: 0;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="back_mylists">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="home_mylists">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                  <div class="ui-block-c tac" id="Div15">
+                    
+                </div>
+                  <div class="ui-block-d tac" id="addPatMyList">
+                    <div style="position: relative;">
+                        <img src="img/Add_Patient_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD PATIENT</div>
+                </div>
+                <div class="ui-block-e tac" id="addListMyList">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD/EDIT LIST</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------------------------------Patient Mylists ends-------------------------------------------->
+    <!-------------------------Patient List starts------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="PatientList" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_PatientList" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="PtInfo_PatientList">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+        <input type="hidden" id="hiddenMyList" />
+            <div class="pgblock">
+                <div class="inner_middle tshadow" id="listnm">
+                </div>
+                <ul id="ul_PatientList" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                    style="margin-top: 0; margin-bottom: 0;">
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backPatientList">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homePatientList">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c">
+                </div>
+                <div class="ui-block-d">
+                </div>
+                <div class="ui-block-e tac" id="addPatient_list">
+                    <div style="position: relative;">
+                        <img src="img/Add_Patient_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD PATIENT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------------------Patient List Ends--------------------------------------------------------->
+    <!---------------Search Patient starts-------------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="SearchPatient" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_searchPatient" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="PtInfo_SearchPtnt">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    <select id="ddl_list" data-mini="true">
+                    </select>
+                   <!-- <div>
+                        <input type="search" name="searchMrnNo" id="txtSearch" placeholder="Search by MRN No." />
+                    </div>-->
+                    <div style="width:100%;">
+                    <div style="float:left; width:90%;">
+                    <input type="search" name="searchMrnNo" id="txtSearch" placeholder="Search by MRN No." />
+                    </div>
+                    <div style="float:left; width:5%; margin-top:4px; margin-left:3px;" id="searchMRN">
+                    <a href="" data-role="button" data-icon="search" data-iconpos="notext">Delete</a>
+                    </div>
+                    </div>
+                     
+                    <!-- <div class="fl ml10" style="width: 6%; margin-top: 4px; margin-left: 4px;">
+                            <a href="" id="btnSearchPatient" class="ui-btn ui-shadow ui-corner-all ui-icon-search ui-btn-icon-notext">
+                            </a>
+                        </div>-->
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="SearchResult">
+                </div>
+            </div>
+            <input type="hidden" id="hdnpersonId" />
+            <input type="hidden" id="hdnMrnNo" />
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="btnBackSearch">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="btnHomeSearch">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c">
+                </div>
+                <div class="ui-block-d">
+                </div>
+                <div class="ui-block-e tac" id="btnAddPatientSearch">
+                    <div style="position: relative;">
+                        <img src="img/Add_Patient_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD PATIENT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------------Search Patient Ends-------------------------------------------------------------->
+    <!--------------------Patient Test Details starts----------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="PatientTestDetails" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_testdetails" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" style="visibility: hidden" id="ptInfo_details">
+                </div>
+                <div class="tac txt13" style="visibility: hidden" id="ptInfoLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow" id="lnameTestDetails">
+                </div>
+                <div style="background-color: #ffffff;" class="ui-content">
+                    <div style="margin-left: 8% !important;">
+                        <div class="txtList" id="ptnameDetails">
+                        </div>
+                        <div>
+                            <span class="iconTxt"></span><span style="font-size: 12px;" id="mrnNoDetails"></span>
+                            <span class="iconTxt" style="margin-left: 10px;">GENDER: </span><span style="margin-left: 10px;
+                                font-size: 12px;" id="genderDetails"></span>
+                        </div>
+                        <div>
+                            <span class="iconTxt">D.O.B: </span><span style="margin-left: 10px; font-size: 12px;"
+                                id="dobDetails"></span><span class="iconTxt" style="margin-left: 10px;"></span>
+                            <span style="font-size: 12px;" id="nhsnoDetails"></span>
+                        </div>
+                        <div>
+                            <span class="iconTxt">LOCATION: </span><span style="margin-left: 10px; font-size: 12px;"
+                                id="locationDetails"></span>
+                        </div>
+                        <input type="hidden" id="hdnPersonIdDetails" />
+                        <input type="hidden" id="hdnListId" />
+                    </div>
+                    <div class="ui-grid-a mt20">
+                        <div class="ui-block-a block mt10" id="lab_details">
+                            <div class="blockimg">
+                                <img src="img/lab.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    LABORATORY</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b block mt10 " id="rad_details">
+                            <div class="blockimg">
+                                <img src="img/Radiology.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    RADIOLOGY</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-a block mt10 " id="viewnote_details" style="display:none;">
+                            <div class="blockimg">
+                                <img src="img/View.png" alt="" border="0" class="blckimg" />
+                                <div class="txtList tshadow mt10" style="width: 92px;">
+                                    VIEW NOTES</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b block mt10 " id="addnote_details" style="display:none">
+                            <div class="blockimg">
+                                <img src="img/addEditList.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList tshadow mt10">
+                                    ADD NOTE</div>
+                            </div>
+                        </div>
+
+                          <div class="ui-block-a block mt20" style="margin-left: 27% !important" id="captureImageDetails">
+                         <div class="blockimg">
+                        <img src="img/Takephoto.png" alt="" border="0" class="blckimg" />
+                        <div class="tac txtList mt10 tshadow">
+                            PHOTO CAPTURE</div>
+                    </div>
+                </div>
+
+                         <div data-role="popup" id="myPopup" style="padding:20px" data-history="false" data-position-to="window" data-dismissible="false" data-theme="a" >
+                          <div onclick="popupClose()"><a href="#" id="removePatientClose" class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext">
+                    Close</a></div>
+    <p style="margin-top:20px;">Are you sure, you want to remove this Patient ?</p>
+   <!-- <div >
+    <button type="submit" id="btnPopupRemovePatient" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Remove Patient</button>
+     
+    </div>-->
+    <div class="tac">
+        <a href="#" data-rel="submit" onclick="removePatient()" data-theme='e' class="ui-btn ml10 btnColor ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-check ui-btn-icon-right" data-textonly="false" data-textvisible="true">Yes</a>
+                    <a href="#"  data-rel="submit"  onclick="popupClose()" data-theme='e' class="ui-btn btnColor ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-right" data-textonly="false" data-textvisible="true">No</a>
+</div>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backTestDetails">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeTestDetails">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="Div6">
+                </div>
+                <div class="ui-block-d tac" id="Div7">
+                </div>
+                <div class="ui-block-e tac" id="removePatDetails">
+              
+                    <div>
+                        <img src="img/removePatient.png" style="height:26px; margin-top:6px;" alt=''/>
+                    </div>
+                    <div class="txtFooter">
+                        REMOVE PATIENT</div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------Patient Test Details Ends-------------------------------------------------->
+    <!--------------------------------Radiology starts------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="Radiology" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_radiology" class="txt13 mt20">
+                    <!--<span id="lname_radiology" class="txt13" style="float: right; margin-right: 30px;">
+                        </span>-->
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfo_radiology">
+                </div>
+                <div class="tac txt13 locationHead" id="radiologyLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow" id="reportName">
+                    Radiology Reports
+                </div>
+                <ul id="lv_radiology" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                    style="margin-top: 0; margin-bottom: 0;">
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="back_radiology">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="home_radiology">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="lab_radiology">
+                    <div style="position: relative;">
+                        <img src="img/lab_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        LABORATORY</div>
+                </div>
+                <div class="ui-block-e tac" id="AddNote_radiology" style="display:none;">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------------------------------------Radiology ends------------------------------------------------>
+    <!-----------------------------------------------Laboratory starts----------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="Laboratory" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_lab" class="txt13 mt20">
+                    <span id="lname_lab" class="txt13" style="float: right; margin-right: 30px;"></span>
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="ptInfo_lab">
+                </div>
+                <div class="tac txt13" id="labLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Laboratory Reports</div>
+                <ul id="lv_laboratory" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                    style="margin-top: 0; margin-bottom: 0;">
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="back_lab">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="home_lab">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <!--    <div class="ui-block-c tac" id="labor_lab">
+                    <div style="position: relative;">
+                        <img src="img/lab_icon.png"  style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        LABORATORY</div>
+                </div>-->
+                <div class="ui-block-d tac" id="rad_lab">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-e tac" id="AddNote_lab">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------------------------------------Laboratory ends----------------------------------------->
+    <!------------------------------Add Note starts------------------------------------------------------------------------->
+    
+    <div data-role="page" data-theme="a" id="AddNote" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_addnote" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfo_addnote">
+                </div>
+                <div class="tac txt13 locationHead" id="addNoteLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Title</div>
+                <div class="mt10">
+                    <select id="ddl_NotesList" data-mini="true">
+                    </select>
+                </div>
+                <div class="inner_middle tshadow">
+                    Notes</div>
+                <div class="mt10">
+                    <textarea id="txt_Notes" maxlength="256" placeholder="Max 256 Characters"></textarea>
+                    <p class="limit">
+                        limit: 256 characters</p>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backAddNote">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeAddNote">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c">
+                </div>
+                <div class="ui-block-d">
+                </div>
+                <div class="ui-block-e tac" id="saveNoteAdd">
+                    <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        SAVE NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-----------------------------------------------------Add Note Ends------------------------------------------------>
+    <!-----------------------------Notes Details starts------------------------------------------------------------------->
+    
+    <div data-role="page" data-theme="a" id="Notes_DetailsPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dnameNotesDetails" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfoNotesDetails">
+                </div>
+                <div class="tac txt13 locationHead" id="notesDetailsLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Note
+                </div>
+                <div class="mt10">
+                    <div style="background-color: #ffffff;">
+                        <div id="noteTitle" class="pd5">
+                        </div>
+                        <div id="detailsNotes" class="ui-content" style="background-color: #ffffff;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backNotesDetails">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeNotesDetails">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="labNotesDetails">
+                    <div style="position: relative;">
+                        <img src="img/lab_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        LABORATORY</div>
+                </div>
+                <div class="ui-block-d tac" id="radNotesDetails">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-e tac" id="addnoteNotesDetails">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-------------------------------------------------Notes Details Page  Ends------------------------------------------->
+    <!------------------------------Notes List starts------------------------------------------------------------------->
+    
+    <div data-role="page" data-theme="a" id="Notes" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_notes" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfo_notes">
+                </div>
+                <div class="tac txt13 locationHead" id="notesListLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <input type="search" name="search" id="searchNotes" placeholder="Search by Note Title" />
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Notes</div>
+                <ul id="lv_notes" data-filter="true" data-input="#searchNotes" data-role="listview"
+                    data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                    style="margin-top: 0; margin-bottom: 0;">
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="back_notes">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="home_notes">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="lab_notes">
+                    <div style="position: relative;">
+                        <img src="img/lab_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        LABORATORY</div>
+                </div>
+                <div class="ui-block-d tac" id="rad_notes">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-e tac" id="addNote_notes">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-------------------------------------------------Notes Page Ends--------------------------------------------------->
+    <!---------------------Change Password starts------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="ChangePwd" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dnameChangePwd" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inputAnimation">
+                    <label for="oldPwd">
+                        Old PIN</label>
+                    <input name="password" id="oldPwd" class="ui-corner-all asterisk" onkeyup="checkSpec(this);"  type="number" /></div>
+                <div class="inputAnimation">
+                    <label for="newPwd">
+                        New PIN</label>
+                    <input name="password" id="NewPwd" class="ui-corner-all asterisk" onkeyup="checkSpec(this);" type="number" /></div>
+                <div class="inputAnimation">
+                    <label for="cnfrmPwd">
+                        Confirm PIN</label>
+                    <input name="password" id="ConfirmPwd" class="ui-corner-all asterisk" onkeyup="checkSpec(this);" type="number" /></div>
+                <a href="" data-role="button" id="submitChangePwd" class="ui-corner-all tac mt20"
+                    data-mini="true">Change PIN</a>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backChngePwd">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeChngePwd">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------------------------Change Pwd ends-------------------------------------------------------------------->
+    <!-------------------Rad Report Details Page starts-------------------------------------------------------------------------------->
+    <div data-role="page" data-theme="a" id="RadRprtDtlsPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dnmRadReportDetails" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="PtInfoRadReportDetails">
+                </div>
+                <div class="tac txt13 locationHead" id="RadRprtDtlsLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock" style="padding: 0px;">
+                <div class="inner_middle tshadow" style="margin-left: 10px;" id="radReportName">
+                    <!-- Radiology Report-->
+                </div>
+                <div class="mt10">
+                    <div style="background-color: #ffffff">
+                        <div id="tstNmRadReportDetails" class="mt10 pd5">
+                        </div>
+                        <div>
+                            <p id="contentRadReportDetails" class="taj pd5">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backRadReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeRadReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="labRadReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/lab_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        LABORATORY</div>
+                </div>
+                <div class="ui-block-d tac" id="radioRadReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-e tac" id="addNoteRadReportDetails" style="display:none;">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------Radiology report details page ends---------------------------------------------------------->
+    <!-------------------------Lab report details page starts------------------------------------------------------------------>
+
+    <div data-role="page" data-theme="a" id="LabRprtDtlsPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dnmLabReportDetails" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="PtInfoLabReportDetails">
+                </div>
+                <div class="tac txt13 locationHead" id="LabRprtDtlsLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="tar">
+                <canvas height="14px" width="14px" style="background-color: #EDE78F; margin-right: 5px;"></canvas>
+                Abnormal
+                <canvas height="14px" width="14px" style="background-color: #FE6263; margin-left: 5px;"></canvas>
+                Critical
+            </div>
+            <div class="pgblock mt10">
+                <div class="inner_middle tshadow">
+                    Laboratory Report
+                </div>
+                <div style="background-color: #ffffff">
+                    <div class="mt10 pd10">
+                        <div class="tshadow">
+                            <span class="tal">Test</span><span style="margin-left: 33%;">Result</span><span class="fr">Ref.
+                                Range</span></div>
+                        <hr class="mt10" style="height: 1px; color: #1e90ff; background-color: #1e90ff; width: 100% !important" />
+                        <div class="tshadow mt20" id="LabrprtDetails">
+                        </div>
+                        <div class="clr">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="bcw">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backLabReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeLabReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="labLabReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/lab_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        LABORATORY</div>
+                </div>
+                <div class="ui-block-d tac" id="radioLabReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-e tac" id="addNoteLabReportDetails">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------Lab report details ends --------------------------------------------------------------->
+    <!--------------------Laboratory View 2 Page starts-------------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="LaboratoryView2" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_lab2" class="txt13 mt20">
+                   
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfo_lab2">
+                </div>
+                <div class="tac txt13 locationHead" id="lab2Location">
+                </div>
+                <div class="clr">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Laboratory Reports</div>
+                <ul id="lv_lab2" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                    style="margin-top: 0; margin-bottom: 0;">
+                </ul>
+              
+            </div>
+
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="back_lab2">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="home_lab2">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+             
+                <div class="ui-block-c tac" id="rad_lab2">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-d tac" id="addNote_lab2" style="display:none;">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        ADD NOTE</div>
+                </div>
+                 <div class="ui-block-e tac" id="moreLab" >
+                    <div style="position: relative;">
+                        <img src="img/loadMore.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" >
+                        MORE RESULTS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------Laboratory View 2 Page ends-------------------------------------------------------------------------------->
+    <!--------------------------------------------------------Laboratory Views--------------------------------------------------->
+    <div data-role="page" data-theme="a" id="LabViews" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dname_LabViews" class="txt13 mt20">
+                    
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="ptInfo_LabViews">
+                </div>
+                <div class="tac txt13" id="labViewsLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Laboratory Reports</div>
+                <div>
+                    <input type="button" value="Lab View 1" id="labView1" />
+                </div>
+                <div class="mt20">
+                    <input type="button" value="Lab View 2" id="labView2" />
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backLabViews">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeLabViews">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+               
+                <div class="ui-block-d tac" id="radLabViews">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-e tac" id="addNoteLabViews">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------LabViews ends---------------------------------------------------------------------------------->
+    <!----------Lab view 2 list starts------------------------------------------------------------------------------------------>
+    <div data-role="page" data-theme="a" id="LabView2Info" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dnameLab2Info" class="txt13 mt20">
+                   
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="PtInfo_Lab2Info">
+                </div>
+                <div class="tac txt13 locationHead" id="Lab2InfoLocation">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="tar">
+                <canvas height="14px" width="14px" style="background-color: #EDE78F; margin-right: 5px;"></canvas>
+                Abnormal
+                <canvas height="14px" width="14px" style="background-color: #FE6263; margin-left: 5px;"></canvas>
+                Critical
+            </div>
+            <div class="pgblock mt10">
+                <div class="inner_middle tshadow">
+                    Laboratory Report
+                </div>
+                <div style="background-color: #ffffff">
+                    <div class="mt10 pd10">
+                        <div class="tshadow">
+                            <span class="tal">Test</span><span style="margin-left: 33%;">Result</span><span class="fr"
+                                id="refRangeLabView2Info">Ref. Range</span></div>
+                        <hr class="mt10" style="height: 1px; color: #1e90ff; background-color: #1e90ff; width: 100% !important" />
+                        <div id="nameLabView2Info" style="font-weight: bold;" class="mt20">
+                        </div>
+                        <div class="tshadow mt20" id="Lab2testDetails">
+                        </div>
+                        <div class="clr">
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backLab2List">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeLab2List">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+               
+                <div class="ui-block-d tac" id="radLab2List">
+                    <div style="position: relative;">
+                        <img src="img/Radiology_icon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        RADIOLOGY</div>
+                </div>
+                <div class="ui-block-e tac" id="addNoteLab2List" style="display:none;">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD NOTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------Lab view 2 list ends------------------------------------------------------------------------------------------------>
+    <div data-role="page" id="uploadProfilePicPage" class="backdrdtheme">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dnameuploadProfile" class="txt13">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow" style="color: #fff;">
+                    Upload Profile Picture
+                </div>
+                <div data-role="main" class="mt20">
+                    <div style="border: 1px solid #2a2a2a; margin: 0 auto;" placeholder="upload photo">
+                        <img style="width: 100%;" id="camera_image" src="" /></div>
+                    <span id="camera_status"></span>
+                    <div>
+                        &nbsp;</div>
+                    <div class="tac">
+                        <a href="" data-role="button" data-inline="true" data-mini="true" data-icon="camera"
+                            id="imageUpload">Capture Image</a> <a href="" data-role="button" data-inline="true"
+                                data-mini="true" data-icon="camera" id="captureVideo">Capture Video</a>
+                        <a href="" data-role="button" data-inline="true" data-mini="true" data-icon="grid"
+                            id="browse">Gallery</a></div>
+                </div>
+            </div>
+        </div>
+      
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backUploadProfile">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeUploadProfile">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------------------Patient Image ends here------------------------------------------------------------------------------------------------------->
+    <div data-role="page" data-theme="a" id="Dashboard" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dnameDashboard" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="PtInfoDashboard">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div id="facilityName">
+                </div>
+             
+            </div>
+        </div>
+        
+    </div>
+    <!----------------------------First Login Password Change----------------------------------------------->
+    <div data-role="page" data-theme="a" id="Div1" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="Div2" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div3">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div id="Div4">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------------------Dashboard ends here--------------------------------------------------------------------------------->
+    <!-------------------------Change Password page after login starts here------------------------------------------------------------------------>
+    <div data-role="page" data-theme="a" id="loginChangePwd" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="phyNameChangePwd" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="inputAnimation">
+                <label for="newPwd">
+                    New PIN</label>
+                <input name="password" id="newPwdChngePwd" class="ui-corner-all asterisk" value="" type="number" /></div>
+            <div class="inputAnimation">
+                <label for="cnfrmPwd">
+                    Confirm PIN</label>
+                <input name="password" id="cnfrmPwdChngePwd" class="ui-corner-all asterisk" value="" type="number" /></div>
+            <a href="" data-role="button" id="submitChngePwd" class="ui-corner-all tac mt20"
+                data-mini="true">Submit</a>
+        </div>
+    </div>
+
+    <!-------------------------First Login Password Change Ends------------------------------------------->
+    <!------------Forgot Pwd Page starts-------------------------------------------------------------------------------------------->
+
+     <div data-role="page" data-theme="a" id="forgotPwdPage" style="background-color: #ffffff !important;">
+        <div data-role="header" class="headerNew" data-position="fixed" data-tap-toggle="false">
+             <div id="headerForgotPwd" style="width: 100%; background-color: #ffffff;margin-top:20px;">
+                <div style="width: 100%;">
+                    <div style="float: left; width:10%;">
+                        <img class="fl" src="img/logo.png" width="40px">
+
+                         <div class="headImage fl" style="width:10%;line-height:40px;font-size:0.70em;">
+                       
+                    </div>
+                    </div>
+                   
+                    <div align="right" style="float: right; width:75%;">
+                        <img class="" src="img/lgtnewheader.jpg" style="max-width:220px;width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="forgotPwd">
+            <form id="Form1" data-ajax="false" class="login">
+           
+            <div class="inputAnimation">
+                <label for="email">
+                    E-Mail</label>
+                <input name="email" id="emailForgotPwd" class="ui-corner-all" value="" type="text" />
+            </div>
+            
+            <div class="tac mt20">
+                 <div class="ui-grid-a">
+                  <div class="ui-block-a">
+                        <div class="iconLogin" id="backForgotPwd">
+                            <img src="img/backicon.png"  style="width: 50px; height: 50px;" />
+                            <div class="tac txtcolor tshadow">
+                                Back</div>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="iconLogin" id="requestPwd">
+                            <img src="img/login_go.png" id="Img1" style="width: 50px; height: 50px;" />
+                            <div class="tac txtcolor tshadow">
+                                Request PIN</div>
+                        </div>
+                        </div>
+            </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <!----------------------------Forgot password page ends here-------------------------------------------------------------->
+
+    <!-----------------Capture Image Options page starts here------------------------------------------------------------------------>
+
+    <div data-role="page" data-theme="a" id="captureImageOptions" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="phyNameCaptureImageOptions" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfoCapImgOpt">
+                </div>
+                <div class="tac txt13 locationHead" id="ptLocCapImgOpt">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+             <div style="background-color: #ffffff;" class="ui-content">
+         <div class="ui-grid-a mt20">
+                       <!-- <div class="ui-block-a block mt10" id="viewCapImageOptions">
+                            <div class="blockimg">
+                                <img src="img/View.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    View</div>
+                            </div>
+                        </div>-->
+                        <div class="" id="addCapImageOptions">
+                            <div class="blockimg">
+                                <img src="img/Takephotoadd.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    Add</div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+          
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backCapImageOptions">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div13">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------Capture Image Options ends here------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="imageOptionsData" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="phyNameImgOptData" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfoImgOptData">
+                </div>
+                <div class="tac txt13 locationHead" id="ptLocImgOptData">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+        <div class="pgblock">
+        <input type="hidden" id="hdnOptionValue" />
+        <input type="hidden" id="hdnMrnImgOpt" />
+         <!--   <fieldset data-role="controlgroup" class="ui-shadow mt10"  id="Fieldset1">
+                    <input name="checkBoxPatient" style="outline-color: red;" id="checkBoxPatient" type="checkbox" ><label for="checkBoxPatient" >Selected Patient is Valid</label>
+                </fieldset>-->
+                      
+                <div class="inner_middle tshadow mt10">
+                     Consent Level</div>
+                     <fieldset data-role="controlgroup" class="ui-shadow" data-iconpos="right"  id="chbConsentLevel">
+                </fieldset>
+             
+                <div class="inner_middle tshadow">
+                    Site</div>
+                     <div> <select id="ddlSite" data-mini="true" class="">
+
+                    </select></div>
+
+                  <div class="inner_middle tshadow">
+                    Department</div>
+                     <div> <select id="ddlDept" data-mini="true" class="">
+
+                    </select></div>
+                    <div class="inner_middle tshadow">
+                    Consultant</div>
+                <div><input type="text" id="consultantImgOpt"/></div>
+             <!--   <div><input type="text" id="deptImgOptData" maxlength="50" /></div>-->
+                <div class="inner_middle tshadow">
+                    Area(s) of patient's body</div>
+                <div><input type="text" id="aobImgOptData"  maxlength="100"/></div>
+                <div class="inner_middle tshadow">
+                    Diagnosis </div>
+                <div><input type="text" id="diagImgOptData"  maxlength="200"/></div>
+                <div class="inner_middle tshadow">
+                    Notes</div>
+                <div class="mt10">
+                    <textarea id="taNoteImgOptData" maxlength="256"  placeholder="Max 256 Characters"></textarea>
+                    <p class="limit">
+                        limit: 256 characters</p>
+                </div>
+           <!--     <div id="submitImgOptData" style="padding:10px; margin-left:40px;" class="mt20"><input type="button" value="Submit" style="padding:15px;"/></div>-->
+         
+            </div>
+
+        </div>
+          <div data-role="popup" id="uploadImagePopup" data-theme="a" data-history="false"
+            data-dismissible="false">
+            <div data-role="header" data-theme="c" class="ui-content">
+                <p class="popupparaImage">
+                    Quality Preference
+                </p>
+            </div>
+            <div data-role="main">
+                <div class="ui-content">
+                    <fieldset data-role="controlgroup" data-mini="false">
+                        <input type="radio" name="uploadQualityRadio" id="uploadQualityRadioA" onclick="getQuality()"
+                            value="20" />
+                        <label for="uploadQualityRadioA">
+                            Small size (faster)</label>
+                        <input type="radio" name="uploadQualityRadio" id="uploadQualityRadioB" onclick="getQuality()"
+                            value="50" checked="checked" />
+                        <label for="uploadQualityRadioB">
+                            Medium (good quality)
+                        </label>
+                        <input type="radio" name="uploadQualityRadio" id="uploadQualityRadioC" onclick="getQuality()"
+                            value="80" />
+                        <label for="uploadQualityRadioC">
+                            Large (excellent quality)
+                        </label>
+                        <input type="radio" name="uploadQualityRadio" id="uploadQualityRadioD" onclick="getQuality()"
+                            value="100" />
+                        <label for="uploadQualityRadioD">
+                            Original image
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backImgOptData">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div21">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+             <div class="ui-block-c"></div>
+             <div class="ui-block-d"></div>
+                <div class="ui-block-e tac " id="submitImgOptData" >
+                    <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        NEXT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--------------------------------imageOptionsData ends here--------------------------------------------------------->
+
+    <!------------Image capture starts here---------------------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="imageCapturePage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="phyNmCaptureImg" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfoCapImg">
+                </div>
+                <div class="tac txt13 locationHead" id="ptLocCapImg">
+                </div>
+            </div>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+        <div class="pgblock">
+       <div style=" margin: 0 auto;width:100%;" placeholder="upload photo">
+    <div style="text-align:center; background-color:White;">
+                        <img align="middle" style="width: 200px; height:200px;" id="capturedImageShow"  src="" />
+                   </div>
+       </div>
+          <!-- <div id="captureMore" style="margin-top:30px;" class="tac"><a href="#">Click here to capture more..</a></div>-->
+           
+                       <!--  <div class="tac mt20" id="imgAprRej" >
+                         <span id="approveImage">
+                        <a href="" data-role="button" data-inline="true" data-mini="true" 
+                            >Approve</a> 
+                                </span>
+                         <span id="rejectImage">
+                        <a href="" data-role="button" data-inline="true" data-mini="true" 
+                            >Reject</a> 
+                                </span>
+                                </div>-->
+                   <!--             <div class="clr"></div>
+                    <div class="tac" id="btnImgCapture">
+                        <a href="" data-role="button" data-inline="true" data-mini="true" data-icon="camera"
+                            >Capture Image</a> 
+                                </div>-->
+                </div>
+
+        </div>
+             <div data-role="popup" id="popupCapMore" data-theme="a" data-history="false"
+            data-dismissible="false">
+            <div data-role="header" data-theme="c" class="ui-content">
+                <p class="popupparaImage">
+                    Quality Preference
+                </p>
+            </div>
+            <div data-role="main">
+                <div class="ui-content">
+                    <fieldset data-role="controlgroup" data-mini="false">
+                        <input type="radio" name="qualityImgCap" id="rbQualA" onclick="getQuality()"
+                            value="20" />
+                        <label for="rbQualA">
+                            Small size (faster)</label>
+                        <input type="radio" name="qualityImgCap" id="rbQualB" onclick="getQuality()"
+                            value="50" checked="checked" />
+                        <label for="rbQualB">
+                            Medium (good quality)
+                        </label>
+                        <input type="radio" name="qualityImgCap" id="rbQualC" onclick="getQuality()"
+                            value="80" />
+                        <label for="rbQualC">
+                            Large (excellent quality)
+                        </label>
+                        <input type="radio" name="qualityImgCap" id="rbQualD" onclick="getQuality()"
+                            value="100" />
+                        <label for="rbQualD">
+                            Original image
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backImgCapture">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeImgCapture">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="Div19">
+                    
+                </div>
+                <div class="ui-block-d tac" id="captureMore">
+                     <div style="position: relative;">
+                        <img src="img/cameraIcon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        CAPTURE MORE</div>
+                </div>
+                <div class="ui-block-e tac" id="lightBoxImgCap">
+                    <div style="position: relative;">
+                        <img src="img/addnoteicon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        LIGHT BOX</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-------------------------------imageCapturePage ends here--------------------------------------------------------------------->
+
+    <!------------Light box page starts here-------------------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="lightBoxPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="phyNmLightBox" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfoLightBox">
+                </div>
+                <div class="tac txt13 locationHead" id="ptLocLightBox">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+             <div class="pgblock">
+                 <div class="inner_middle tshadow">
+                     Lightbox - Select images to upload</div>
+             <div style="background-color: #ffffff;" class="ui-content">
+
+                     
+                    <ul data-role="listview" id="lv_LightBox" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin-top: 0; margin-bottom: 0;">
+                    </ul>
+               
+        <!-- <div class="ui-grid-a mt20" id="imgThumbNails">
+                    
+              </div>-->
+                      
+                        </div>
+                        </div>
+
+        </div>
+             <div data-role="popup" id="lightBoxImgPopup" data-overlay-theme="b" data-theme="none" data-corners="false" 
+             data-position-to="window" data-history="false" data-dismissible="false">
+          <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+            <div data-role="main">
+                <div class="ui-content">
+                    <img src='#' id="imgPopupLghtBox" style="width:90%; height:70%; margin-top:0px; margin-bottom:0px; margin-left:6%"/>
+                </div>
+            </div>
+        </div>
+      
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backLightBox">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeLightBox">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="Div17">
+                    
+                </div>
+                <div class="ui-block-d tac" id="capMoreLghtBoxPage">
+                    <div style="position: relative;">
+                        <img src="img/cameraIcon.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                      CAPTURE MORE  </div>  
+                </div>
+                <div class="ui-block-e tac" id="cnfrmedLightBox">
+                   <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        UPLOAD</div>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------Light box page ends here--------------------------------------------------------------------------->
+
+     <div data-role="page" data-theme="a" id="AddPatientOptionsPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmAddPatOptPage" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="Div10">
+                </div>
+                <div class="tac txt13 locationHead" id="Div11">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+             <div style="background-color: #ffffff;" class="ui-content">
+         <div class="ui-grid-a mt20">
+                        <div class="ui-block-a block mt10" id="bedWardAddPatOpt">
+                            <div class="blockimg">
+                                <img src="img/mylists.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    Bed Board</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b block mt10 " id="searchPatAddPatOpt">
+                            <div class="blockimg">
+                                <img src="img/addpatient.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    Search Patient</div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+          
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backAddPatOptPage">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div16">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------------------Add Patient Options Page ends here------------------------------------------------------------->
+    
+    <!--------------Bed Ward list starts here---------------------------------------------------------------------------------------------->
+    
+       <div data-role="page" data-theme="a" id="BedWardListPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmBedWardList" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div12">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Wards</div>
+                <div style="background-color: #000000;">
+                    <ul data-role="listview" id="lv_bedWard" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin-top: 0; margin-bottom: 0;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backBedWardList">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeBedWardList">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------Bed Ward List ends here--------------------------------------------------------------------------------------->
+    
+    <!------------------------------------------------------Ward Patient List starts here------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="WardPatientListPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmWardPatList" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div14">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+        <div data-role="panel" id="panelWardPat" data-dismissible="true" data-swipe-close="true" data-display="overlay" >
+        
+         
+                <div id="lvAddWardPat" style="height: 500px; overflow-y: scroll;"></div>
+           <div> 
+            <a href="#" id="btnSubPanel" data-mini="true" data-rel="close" class="ui-btn fl ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-check ui-btn-icon-right"   style="float: left; width: 26%;font-size:14px; ">
+                Proceed</a>
+                 <a href="#" id="btnClrPanel" data-mini="true" data-rel="close" class="ui-btn fl ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-right"
+                    style="float: right; width: 18%;font-size:14px; ">Clear</a>   
+                    </div>
+         
+                  </div> 
+            <div class="pgblock">
+                <div class="inner_middle tshadow" id="stationNmWardPat">
+                    </div>
+                <div style="background-color: #000000;">
+                    <ul data-role="listview" id="lv_WardPatList" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin-top: 0; margin-bottom: 0;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backWardPatList">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeWardPatList">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac"></div>
+              
+                 <div class="ui-block-d tac" id="Div8">
+                    <!--<div style="position: relative;">
+                        <img src="img/wardlist.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        WARDS</div>-->
+                </div>
+                  <div class="ui-block-e tac" id="divfrgt">
+                  <div style="position:absolute; display:inline; padding:16px 0px 0px 8px;" id="statusAddWardPat">
+                        </div>
+                  <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        PROCEED</div>
+                    
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------Ward Patient List ends here------------------------------------------------------------------------------------->
+    <div data-role="page" data-theme="a" id="WardPatientPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmWardPat" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="ptInfWardPat">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+   
+            <div class="pgblock">
+                <div class="inner_middle tshadow" id="stnNmWardPat">
+                    </div>
+                <div style="background-color: #000000;">
+                    <ul data-role="listview" id="lvWardPat" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin-top: 0; margin-bottom: 0;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backWardPat">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeWardPat">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+          
+            </div>
+        </div>
+    </div>
+
+
+
+    <!---------------------------------------------------Confirm Patient Submits Page starts here-------------------------------------->
+
+         <div data-role="page" data-theme="a" id="confirmWardPatAddPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmCnfrmWardPat" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div23">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+            <select id="ddlPanelMyList" data-mini="true">
+            <option value="0">Select List Name</option>
+                </select>
+                <div class="inner_middle tshadow">
+                    </div>
+                <div style="background-color: #000000;">
+                    <ul data-role="listview" id="lvCnfrmWardPat" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin-top: 0; margin-bottom: 0;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backCnfrmWardPat">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeCnfrmWardPat">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c"></div>
+                <div class="ui-block-d"></div>
+                    <div class="ui-block-e tac" id="addPatCnfrmWardPat">
+                    <div style="position: relative;">
+                        <img src="img/greenTick.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ADD TO LIST</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-------------------------------Confirm Patient Submits Page ends here------------------------------------------------------------------->
+
+   <div data-role="page" data-theme="a" id="DataCapScreenPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmDataCapScreen" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div24">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                   
+                 <!--   <div>
+                        <input type="search" name="searchMrnNo" id="searchMrnDataCap" placeholder="Search by MRN No." />
+                    </div>-->
+                               <div style="width:100%;">
+                    <div style="float:left; width:90%;">
+                    <input type="search" name="searchMrnNo" id="searchMrnDataCap" placeholder="Search by MRN No." />
+                    </div>
+                    <div style="float:left; width:5%; margin-top:4px; margin-left:3px;" id="btnSearchData">
+                    <a href="" data-role="button" data-icon="search" data-iconpos="notext"></a>
+                    </div>
+                    </div>
+
+
+
+                    <!-- <div class="fl ml10" style="width: 6%; margin-top: 4px; margin-left: 4px;">
+                            <a href="" id="btnSearchPatient" class="ui-btn ui-shadow ui-corner-all ui-icon-search ui-btn-icon-notext">
+                            </a>
+                        </div>-->
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="searchResDataCap">
+                </div>
+            </div>
+            <input type="hidden" id="hdnPrsnIdDataCap" />
+          
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backDataCapScreen">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div27">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c">
+                </div>
+                <div class="ui-block-d" id="lghtboxPat">
+                <div style="position: relative;">
+                        <img src="img/Add_Patient_icon.png" style="width: 40px; margin-left:24%;" />
+                    </div>
+                    <div class="txtFooter mt-8 tac" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"> 
+                        LIGHTBOX</div>
+                </div>
+                <div class="ui-block-e tac" id="acceptDataCap">
+                    <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        ACCEPT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--------------------------Data Cap screen page ends here------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------Lightbox Patient starts here------------------------------------------------>
+
+    <div data-role="page" data-theme="a" id="LightBoxPatListPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmLghtBoxPatList" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div20">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow" id="Div22">Patient List
+                </div>
+                <ul id="lvLghtBoxPatList" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                    style="margin-top: 0; margin-bottom: 0;">
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backLghtBoxPatList">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div26">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="Div9">
+                    
+                </div> 
+                 <div class="ui-block-d tac" id="Div25">
+                    
+                </div> 
+                 <div class="ui-block-e tac" id="Div28">
+                    
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <!---------------------------------------------Lightbox Patient list ends here------------------------------------------------------------>
+
+    <!--------------------------------Set Id's List page starts here---------------------------------------------------------------------->
+
+
+    <div data-role="page" data-theme="a" id="PhotosetIdListPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+
+           <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmPhotosetIdLst" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfoPhotosetId">
+                </div>
+                <div class="tac txt13 locationHead" id="ptLocPhotosetId">
+                </div>
+            </div>
+       
+
+           <!-- <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmPhotosetIdLst" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div30">
+                </div>
+            </div>-->
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow" id="ptNmPhotoSetId">
+                </div>
+                <ul id="lvPhotoSetId" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                    style="margin-top: 0; margin-bottom: 0;">
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backPhotoSetId">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div33">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c tac" id="Div34">
+                    
+                </div> 
+                 <div class="ui-block-d tac" id="Div35">
+                    
+                </div> 
+                 <div class="ui-block-e tac" id="Div36">
+                    
+                </div> 
+            </div>
+        </div>
+    </div>
+<!--------------------------------------------Set Id's List page ends here-------------------------------------------------------------->
+<div data-role="page" data-theme="a" id="AddPatientScreenPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmAddPatOpt" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="ptInfoAddPatOpt">
+                </div>
+                <div class="tac txt13 locationHead" id="ptLocAddPatOpt">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+         <div class="pgblock">
+                <div class="inner_middle tshadow">
+                    Add Patient</div>
+                <div style="background-color: #000000;">
+                    <ul data-role="listview" id="lvAddPatOptions" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin-top: 0; margin-bottom: 0;">
+                        <li style='font-size:13px !important; padding:15px;' data-iconshadow='true' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-btn ui-icon-arrow-r ui-btn-icon-right' id="srchWardAddPatOpt">Search by Ward</li>
+                        <li style='font-size:13px !important; padding:15px;' data-iconshadow='true' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-btn ui-icon-arrow-r ui-btn-icon-right' id="srchMrnAddPatOpt">Search by MRN</li>
+                    </ul>
+                </div>
+            </div>
+<!--            <div class="pgblock">
+             <div style="background-color: #ffffff;" class="ui-content">
+         <div class="ui-grid-a mt20">
+                        <div class="ui-block-a block mt10" id="srchWardAddPatOpt">
+                            <div class="blockimg">
+                                <img src="img/View.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    SEARCH BY WARD</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b block mt10" id="srchMrnAddPatOpt">
+                            <div class="blockimg">
+                                <img src="img/Takephotoadd.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    SEARCH BY MRN</div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>-->
+          
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backAddPatOpt">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeAddPatOpt">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+<!------------------------------------------------Add Patient Screen Page ends here---------------------------------------------->
+
+<!-----------------Settings Page starts here------------------------------------------------------------------------->
+
+
+    <div data-role="page" data-theme="a" id="SettingsPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmSettingsPage" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13 locationHead" id="Div30">
+                </div>
+                <div class="tac txt13 locationHead" id="Div31">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="pgblock">
+             <div style="background-color: #ffffff;" class="ui-content">
+         <div class="ui-grid-a mt20">
+                        <div class="ui-block-a block mt10" id="chngeSiteSettings">
+                            <div class="blockimg">
+                                <img src="img/settings_gear.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    CHANGE SITE</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b block mt10" id="chngePinSettings">
+                            <div class="blockimg">
+                                <img src="img/changepassword.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    CHANGE PIN</div>
+                            </div>
+                        </div>
+                          <div class="ui-block-a block mt10" id="smrtcardIdSettings">
+                            <div class="blockimg">
+                                <img src="img/changepassword.png" alt="" border="0" class="blckimg" />
+                                <div class="tac txtList mt10 tshadow">
+                                    ADD iCARE SMARTCARD ID </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+          
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backSettings">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div39">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter  mt-8">
+                        HOME</div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+    <!-----------------------Settings page ends here---------------------------------------------------------------------->
+
+       <div data-role="page" data-theme="a" id="ViewPatientPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNmViewPat" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div32">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+                <div class="inner_middle tshadow">
+                   
+                  <!--  <div>
+                        <input type="search" name="searchMrnNo" id="mrnSearViewPat" placeholder="Search by MRN No." />
+                    </div>-->
+                           <div style="width:100%;">
+                    <div style="float:left; width:90%;">
+                    <input type="search" name="searchMrnNo" id="mrnSearViewPat" placeholder="Search by MRN No." />
+                    </div>
+                    <div style="float:left; width:5%; margin-top:4px; margin-left:3px;" id="btnSearchPat">
+                    <a href="" data-role="button" data-icon="search" data-iconpos="notext">Delete</a>
+                    </div>
+                    </div>
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="srchResViewPat">
+                </div>
+            </div>
+            <input type="hidden" id="hdnPrsnIdViewPat" />
+             <input type="hidden" id="hdnMrnViewPat" />
+
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backViewPat">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="homeViewPat">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                <div class="ui-block-c">
+                </div>
+                <div class="ui-block-d" >
+               
+                </div>
+                <div class="ui-block-e tac" id="viewPatDetails">
+                    <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        VIEW</div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!------------------------------------view Patient ends------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="ChangeUUID" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="phyNMChngeUUID" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div37">
+                </div>
+            </div>
+        </div>
+        <div data-role="main" class=" ui-content">
+            <div class="pgblock">
+               <div class="inputAnimation">
+                    <label for="oldPwd">
+                         ADD iCARE SMARTCARD ID</label>
+                    <input name="uuid" id="txtUUID" class="ui-corner-all" onkeydown="limit(this);" onkeyup="limit(this);"  type="number" /></div>
+              <a href="" data-role="button" id="saveUUID" class="ui-corner-all tac mt20"
+                    data-mini="true">Save</a>
+            </div>
+           
+
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backUUID">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div42">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+               
+              
+            </div>
+        </div>
+    </div>
+
+    <!-------------------------change UUID ends here--------------------------------------------------------------------------------->
+
+    <div data-role="page" data-theme="a" id="CreateListPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNameCreateList" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div38">
+                </div>
+            </div>
+        </div>
+         <div data-role="main" style="padding:10px;">
+            <div class="pgblock1">
+                <div class="inner_middle tshadow">
+                    Create List</div>
+                <div>
+                 <input type="text" id="txtListName" placeholder="List Name"/>
+                <div>
+                <div class="inner_middle tshadow">
+                    Assigned User</div>
+                  <input type="search" id="searchCreateList" placeholder="Search by user" />
+
+            <div  style="width:90%;">
+               <div style="float:left; color:#fff; margin-top:5px;">
+               Users
+               </div>
+               <div style="float:right; color:#fff; margin-top:5px; ">
+               <span style="margin-right:10px;">Admin</span>
+               <span>Access</span>
+               </div>
+            </div>
+                </div>
+                <div class="clr"></div>
+                <div id="divScrollable" style="width:100% !important;">
+                <div  class="slider-content" style="width:100%;">
+                    <ul data-role="listview" data-filter="true" data-input="#searchCreateList" id="lvCreateList" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="background-color:#fff;">
+
+                    </ul>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+           <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backCreateList">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div40">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                           <div class="ui-block-c tac" id="Div41">
+                    
+                </div>
+                            <div class="ui-block-d tac" id="Div43">
+                    
+                </div>
+                <div class="ui-block-e tac" id="saveCreateList">
+                    <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        SAVE</div>
+                </div>
+              
+            </div>
+        </div>
+
+        </div>
+
+        <!---------------Create List Page ends here------------------------------------------------------------------->
+
+         <div data-role="page" data-theme="a" id="EditUserListPage" style="background-color: #ffffff !important">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="headerText tshadow" style="background-color: #921D66;">
+                <div id="dNameEditUser" class="txt13 mt20">
+                </div>
+                <hr style="height: 1px; background-color: #ffffff; border: 0; color: #ffffff; margin-right: 30px;" />
+                <div class="tac txt13" id="Div45">
+                </div>
+            </div>
+        </div>
+         <div data-role="main" style="padding:10px;">
+            <div class="pgblock1">
+
+            <input type="hidden" id="hdnListIdEditUser" />
+                <div class="inner_middle tshadow">
+                    Edit List</div>
+                <div>
+                 <input type="text" id="lstNameEditUser" placeholder="List Name"/>
+                <div>
+                <div class="inner_middle tshadow">
+                    Assigned User</div>
+
+                <input type="search" id="searchEditUser" placeholder="Search by user" />
+               <div style="float:left; color:#fff; margin-top:5px;">
+               Users
+               </div>
+               <div style="float:right; color:#fff; margin-top:5px; ">
+               <span style="margin-right:30px;">Admin</span>
+               <span style="margin-right:40px;">Access</span>
+               
+
+               </div>
+                </div>
+                <div class="clr"></div>
+                 <div id="divEditUser" style="width:100%;">
+                <div  class="slider-content"  style="width:100%;" >
+                    <ul data-role="listview" data-filter="true" data-input="#searchEditUser" id="lvEditUserList" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="background-color:#fff;">
+                 
+  
+                    </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="background-color: #fff;">
+            <div class="ui-grid-d" style="margin-bottom: 6px;">
+                <div class="ui-block-a tac" id="backEditUserList">
+                    <div style="position: relative;">
+                        <img src="img/Back.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        BACK</div>
+                </div>
+                <div class="ui-block-b tac home" id="Div48">
+                    <div style="position: relative;">
+                        <img src="img/Home.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        HOME</div>
+                </div>
+                           <div class="ui-block-c tac" id="Div49">
+
+                    
+                </div>
+                            <div class="ui-block-d tac" id="Div50">
+                    
+                </div>
+                <div class="ui-block-e tac" id="saveEditUserList">
+                    <div style="position: relative;">
+                        <img src="img/Done.png" style="width: 40px;" />
+                    </div>
+                    <div class="txtFooter mt-8">
+                        SAVE</div>
+                </div>
+              
+            </div>
+        </div>
+
+      </div>
+</body>
+</html>
