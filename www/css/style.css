@@ -1,0 +1,510 @@
+body {
+    font: normal 13px Verdana, Arial, sans-serif;
+    text-shadow:none !important;
+    -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+}
+ .header 
+ {
+     height:87px;
+  position: relative;
+  margin: 0px auto;
+  width: 100% !important;
+  background-color:#ffffff !important;
+  border-radius: 0px;
+  
+}
+
+.btnColor 
+{
+   background-color:#a12b76 !important;
+   /*border:1px solid #ff6800 !important;*/
+   text-shadow:0 0 0 #333 !important;
+   color:#fff !important;
+}
+
+.rgheading {
+    height: 60px;
+    width:50px;
+    margin: 10px 0px 0px 5px;
+    float: left;  
+}
+
+.phonelogo
+{
+    text-align:center;
+    height: 50px;
+    width:100% !important;
+}
+ .headerText
+{
+    padding:10px;
+    height: 87px;
+    width:100% !important;
+    line-height:20px;
+}  
+.taj
+{
+    text-align:justify;
+    } 
+.headingDefault
+{
+    color:Black;
+    font-size:90px !important;
+}
+
+.button_default
+{
+    bottom:0px;
+ }
+.wd215
+{
+    width:215px;}
+.margin_auto
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+.mt25
+{
+    margin-top: 25px;
+}
+
+.mt-8
+{
+       margin-top: -8px;
+}
+.txtcolor
+{
+    color: #fff;
+    font-size: 10px;
+}
+.txtFooter
+{
+    color: #000000;
+    font-size: 11px;
+    }
+
+.iconTxt{
+color: #000;
+font-weight: bold;
+    font-size: 12px;
+}
+
+.textPat
+{
+        color: #000;
+         font-size: 12px;
+    }
+
+.labelTxt{
+color: #000;
+font-weight: bold;
+    font-size: 12px;
+}
+
+.txtList{
+color: #000;
+font-weight: bold;
+    font-size: 12px;
+}
+.txt13
+{
+    color: #FFFFFF !important;
+    font-size: 13px;
+    }
+.txt25
+{
+    color: #FFFFFF;
+    font-size: 25px;
+    }
+ 
+.tac {
+    text-align: center;
+}
+.tar
+{
+    text-align:right;
+    
+    }
+.tal
+{
+    text-align:left;
+    }
+.mt30{
+	margin-top:30px !important;
+}
+.vsbltyHdn
+{
+    visibility:hidden;
+    }
+.vsbltyVsble
+{
+    visibility:visible;
+ }
+.mg15
+{
+    margin-left: 25px !important; 
+    margin-right:25px !important;
+}
+.notifiy
+{
+    padding: 4px;
+    margin: 0 0 0 45px;
+    border-radius: 10px;
+    font-size: 10px;
+    text-align: center;
+}
+.login {
+  position: relative;
+  margin: 30px auto;
+  padding: 20px 20px 20px;
+  opacity:0.8;
+  width: 248px;
+  background: #A12B76;
+  border-radius: 20px;
+}
+
+.background_image
+{
+ background: transparent none no-repeat center center;
+ background-image: url(../img/UCCrevolvingdoors1.jpg);  
+ background-size: cover;
+  position:absolute;
+    min-width: 100%;
+  min-height: 100%;
+  
+}
+.requestPin
+{
+   
+ background: transparent none no-repeat center center;
+ background-image: url(../img/NU_18032015_004a.jpg);  
+background-size: cover;
+  position:absolute;
+    min-width: 100%;
+  min-height: 100%;
+ 
+}
+.forgotPwd
+{
+      height:100%;
+ background: transparent none no-repeat center center;
+ background-image: url(../img/forgetpws.jpg);  
+ background-size: cover;
+  position:absolute;
+    min-width: 100%;
+  min-height: 100%;
+    }
+.background_list
+{
+ background-color:#f6f6f6 !important;  
+  position:absolute;
+    min-width: 100%;
+  min-height: 100%;
+  
+}
+.blockimg
+{
+    width: 80px; /*90px;*/
+    height: 58%; /*80%;*/
+    margin: 0 auto;
+}
+.iconLogin
+{
+    width: 80px; 
+    height: 40%; 
+    margin: 0 auto;
+    }
+.notesSummary
+{
+    color:Gray;
+    display:inline-block;
+    width:80%;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+}
+.toe
+{
+     text-overflow: ellipsis !important;
+    }
+.mb15
+{
+    margin-bottom: 15px;
+}
+
+.mt5
+{
+    margin-top: 5px !important;
+}
+.mt10
+{
+    margin-top: 10px !important;
+}
+.mt20
+{
+     margin-top: 20px !important;
+}
+.block
+{
+    font-weight: normal;
+    height: 130px;
+}
+.blckimg
+{
+    width: 85%;
+    height: auto;
+}
+#txt_Notes{
+    height: 290.6px !important;
+}
+#taNoteImgOptData
+{
+      height: 190px !important;
+
+    }
+.fl{
+	float:left;
+}
+.fr
+{
+    float:right;
+    }
+.wd100
+{
+    width: 100%;
+}
+.mt30
+{
+    margin-top:30px;
+    }
+    
+
+.tcw
+{
+    color:#ffffff !important;
+    }    
+.bcw
+{
+    background-color:#ffffff !important;
+    
+    }
+
+
+.clr
+{
+    clear: both;
+}
+
+.wrap
+{
+    background-color:#fff;
+    }
+.pgblock
+{
+    margin-top:25px;
+   padding:10px;
+   background-color: #A12B76;
+   border-radius: 5px;
+   height: auto;
+   width:auto;
+}
+.pgblock1
+{
+    
+   padding:10px;
+   background-color: #A12B76;
+   border-radius: 5px;
+   height: auto;
+   width:auto;
+}
+.tshadow
+{
+    text-shadow:none !important;
+    }
+.inner_middle
+{
+   
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 0px 5px 0px;
+    font-weight: bold;
+    width:100%;
+  
+}
+.bottom 
+{
+     bottom:0; margin-bottom:5px; width:100%;
+      }
+.footer_content
+{
+    font-weight: normal;
+    height: 50px;
+}
+.footerimg
+{
+    width: 30px; /*90px;*/
+    height: 30%; /*80%;*/
+    margin: 0 auto;
+}
+
+
+
+.inputAnimation {
+  display: inline-block;
+  position: relative;
+  margin: 20px 0px 0 0;
+  width:100%;
+}
+
+
+.inputAnimation label {
+  position: absolute;
+  text-shadow:none !important;
+  top: 18px;
+  left: 15px;
+  font-size: 12px;
+  color: #aaa;
+  transition: .1s all linear;
+  cursor: text;
+}
+
+.inputAnimation.active label {
+  top: -17px;
+  color:#1e90ff;
+  font-weight: bold;
+  color: #FFFFFF;
+    font-size: 13px;
+}
+
+
+
+.limit {
+  float: right;
+  clear: both;
+  margin-top: 10px;
+  font-size:10px;
+  text-align: right;
+  color: #777777;
+}
+.errorMessage
+{
+    font-size:large;  
+}
+.pd15
+{
+    padding: 15px;
+}
+.pd5
+{
+    padding: 5px;
+    }
+    
+.pd10
+{
+      padding: 10px;
+    }
+
+.mt1{margin-top:2px;border-bottom:1px solid #f5f5f5;width:100%; }
+.even
+{
+    background-color:#f5f5f5;
+    }
+.odd
+{
+background-color:#fff;  
+  }
+  
+
+
+.imgB1 {margin-top:20px; position:absolute; top: 0px; left: 0px; z-index: 3; } 
+
+.txt14
+{
+     font-size: 14px;
+    
+    }
+    
+    
+    .txt12
+    {
+             font-size: 12px;
+        }
+    #tstNmLabReportDetails
+{
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow : ellipsis;
+    width:35%;
+    display:inline-block;
+}
+#tstNmLabRprtDetails
+{
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow : ellipsis;
+    width:35%;
+    display:inline-block;
+      }
+      
+.popupparaImage
+{   
+    margin-left:20% !important;margin-right:20% !important;
+    text-align: center;
+    font-size: 18px;
+    font-family: arial;
+    font-weight: bold;
+    color:#000;padding-top:15px;margin-top:1px;text-shadow:none;
+}
+
+.notesFooter {
+    white-space: nowrap; 
+    width: 60px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+}
+
+.locationHead
+{
+ overflow:hidden;
+ text-overflow:ellipsis;
+ width:100%;
+ white-space:nowrap;   
+}
+
+.headImage
+{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width:85%;
+}
+
+ .headerNew 
+ {
+     height:65px;
+  position: relative;
+  margin: 0px auto;
+  width: 100% !important;
+  background-color:#ffffff !important;
+  border-radius: 0px;
+  color:#898989;
+  font-style:italic;
+  
+}
+
+.asterisk {
+    -webkit-text-security: disc;
+}
+    
+    .fixedScroll
+    {
+             overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: 300px;
+  
+        }
